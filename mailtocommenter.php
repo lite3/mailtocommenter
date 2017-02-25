@@ -39,7 +39,7 @@ function mailtocommenter($cid){
 	if (($options['permission'] == 'admin') and (!current_user_can('switch_themes')))return;
 	global $wpdb;
 	$cid = (int)$cid;
-	$commentdata = get_commentdata($cid,1,false);
+	$commentdata = get_comment($cid, ARRAY_A);
 	$owner_email = $commentdata['comment_author_email'];
 	$post_id = (int)$commentdata['comment_post_ID'];
 	$comments = get_approved_comments($post_id);
